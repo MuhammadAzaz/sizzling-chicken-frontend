@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/server.js",
+    "db:create": "mysql -u$DB_USER -p$DB_PASS -h $DB_HOST -e \"CREATE DATABASE IF NOT EXISTS $DB_NAME DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_unicode_ci;\"",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed": "sequelize db:seed:all",
+    "db:undo": "sequelize db:migrate:undo:all"
   },
   "keywords": [],
   "author": "",
